@@ -1,0 +1,20 @@
+{
+  "mainContents": [
+    {
+      "id": 1,
+      "imgPath": "/img/main1.png"      
+    },
+    {
+      "id": 2,
+      "imgPath": "/img/main2.png"      
+    },
+    {
+      "id": 3,
+      "imgPath": "/img/main3.png"      
+    },
+    {
+      "id": 4,
+      "imgPath": "/img/main4.png"      
+    }
+  ]
+}

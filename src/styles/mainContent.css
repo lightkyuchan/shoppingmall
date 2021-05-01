@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+button {
+  outline: none;
+  border: none;
+  background: none;
+  font-size: 60px;
+}
+
+.mainContent {
+  position: relative;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 20px;
+}
+
+.mainSlider {
+  display: flex;
+}
+
+.mainSlider li a img {
+  width: 100vw;
+}

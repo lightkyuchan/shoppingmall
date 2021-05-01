@@ -1,0 +1,58 @@
+:root {
+  /* size */
+  --nav-width: 80%;
+  --nav-height: 80px;
+  --navBtns-size: 10px;
+  --icons-size: 20px;
+  --nav-top: 4px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+li {
+  list-style: none;
+}
+
+.nav {
+  width: var(--nav-width);
+  height: var(--nav-height);
+  position: sticky;
+  top: var(--nav-top);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navMenu:hover,
+.navBtns li:hover {
+  cursor: pointer;
+}
+
+.navMenu i,
+.navBtns li i {
+  font-size: var(--icons-size);
+}
+
+@media screen and (max-width: 768px) {
+  .navMenu {
+    display: block;
+  }
+
+  .navBtns {
+    display: flex;
+  }
+
+  .navBtns li {
+    padding: 0 var(--navBtns-size);
+  }
+}
