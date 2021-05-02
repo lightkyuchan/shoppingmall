@@ -12,8 +12,12 @@ button {
 
 .mainContent {
   position: relative;
-  width: 100vw;
   overflow: hidden;
+}
+
+.mainSlider {
+  width: 400vw;
+  transition: 0.5s;
 }
 
 .prev,
