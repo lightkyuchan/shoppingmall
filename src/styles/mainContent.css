@@ -1,13 +1,24 @@
+:root {
+  /* mainList */
+  --button-size: 60px;
+  --mainSlider-width: 400vw;
+  --anim: 0.5s;
+  --btns-top: 50%;
+  --btns-padding: 20px;
+  --img-size: 100vw;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 button {
   outline: none;
   border: none;
   background: none;
-  font-size: 60px;
+  font-size: var(--button-size);
 }
 
 .mainContent {
@@ -16,23 +27,23 @@ button {
 }
 
 .mainSlider {
-  width: 400vw;
-  transition: 0.5s;
+  width: var(--mainSlider-width);
+  transition: var(--anim);
 }
 
 .prev,
 .next {
   position: absolute;
-  top: 50%;
+  top: var(--btns-top);
   cursor: pointer;
 }
 
 .prev {
-  left: 20px;
+  left: var(--btns-padding);
 }
 
 .next {
-  right: 20px;
+  right: var(--btns-padding);
 }
 
 .mainSlider {
@@ -40,5 +51,7 @@ button {
 }
 
 .mainSlider li a img {
-  width: 100vw;
+  width: var(--img-size);
 }
+
+/* 메인 리스트 끝 */
