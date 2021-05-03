@@ -14,14 +14,29 @@ function displayItem(items,container) {
     container.innerHTML = items.map(item => createStringHtml(item)).join('');        
 }
 
-function createStringHtml(item) {
-    return `
-        <li>
-            <a href="#">
-                <img src=${item.imgPath} alt="mainItem" id=${item.id}>
-            </a>
-        </li>
-    `
+function createStringHtml(item) {    
+    if(item.type === 'mainItem') {
+        return `
+            <li>
+                <a href="#">
+                    <img src=${item.imgPath} alt="mainItem" id=${item.id}>
+                </a>
+            </li>
+        `
+    }
+    
+    if(item.type === 'signatureItem') {
+        return `
+            <li>
+                <a href="#">
+                  <img src=${item.imgPath} alt="signatureItem">
+                </a>
+                <span class="info">${item.name}</span>
+                <span class="price">${item.price}</span>
+                <span class="sale">${item.sale}</span>
+            </li>
+        `
+    }
 }
 
 //메인배너
@@ -35,10 +50,7 @@ function mainLoad() {
         });
 }
 
-
-//지금 메인페이지에 비슷한 내용으로 3개가있다. 메인배너와 두개의 배너
-//거기에 next와 prev버튼이 붙어있기때문에 이거 한개로 다음 3개를 써먹기위해
-//구현하였음
+//메인배너
 function prev(url, container,count,width,vwNum) {
     --count;
     width += vwNum;
@@ -60,7 +72,7 @@ function prev(url, container,count,width,vwNum) {
 function next(url, container,count,width,vwNum) {
     ++count;
     width -= vwNum;
-
+    
     loadJson(url)
         .then(items => {
             if(count >= items.length) { width = 0; count = 0; }
@@ -69,6 +81,7 @@ function next(url, container,count,width,vwNum) {
         })
 }
 
+//메인배너
 //prev와 next에서 처리되는 부분이 비슷하기에 최대한 코드 중복을 막기위해 따로 뺌
 function changeContainerWidth(container, count, width) {
     container.style.transform = `translate(${width}vw)`;
@@ -77,12 +90,12 @@ function changeContainerWidth(container, count, width) {
     container.dataset.width = width;         
 }
 
-
-function onButtonClick() {           
+//메인배너 
+function onButtonClick() {               
     //각 버튼의 dbUrl를 주는 식으로 처리하면 db를 얻는게 더 수월하지 않나 생각되어서 
-    const url    = `http://127.0.0.1:5000/${event.target.dataset.url}`;    
+    const url    = `http://127.0.0.1:5000/${event.target.dataset.url}`;            
     //내가 찾고 싶은것은 버튼의 부모인 ul이다!!! why? ul의 width위치를 변경하니까
-    const parent = event.target.parentNode;
+    const parent = event.target.parentNode;        
 
     let container = null;   
     //next버튼인지 prev버튼이지 확인하기위해 
@@ -91,7 +104,7 @@ function onButtonClick() {
     for(let child of parent.childNodes) {
         if(child.tagName === 'UL') { container = child; break;}
     }    
-
+    
     //next버튼을 누르면 ++count prev는 --count를 해서 0일때와 배너 이미지의 사이즈를 체크하고 
     //처리하기위해
     let count = container.dataset.count;        
@@ -103,8 +116,8 @@ function onButtonClick() {
     if(isFlag === 'prev') { prev(url, container,count,width,vwNum) }    
 }    
 
-//자동 슬라이드
-function slideShow() {
+//자동 슬라이드(메인배너)
+function autoSlideShow() {
     const mainContainer = document.querySelector('.mainSlider')
     const mainUrl       = 'http://127.0.0.1:5000/mainContents';    
     const vwNum         = 100;
@@ -126,5 +139,54 @@ function slideShow() {
         })
 }
 
+let signatureItemLength = 0;
+
+function signatureItemLoad() {
+    const url = 'http://127.0.0.1:5000/signatureItem';
+    const container = document.querySelector('.signatureSlide');      
+    const width = 300; 
+    const margin = 30;    
+
+    loadJson(url)
+        .then(items => {                      
+            displayItem(items,container)
+            container.style.width = (width + margin) * items.length - margin + 'px';   
+            signatureItemLength = items.length;         
+        });
+}
+
+let vwWidth = 42;
+
+//function subBtnClick() {    
+//    if(event.target.dataset.url === 'signatureItem') { 
+//        container = document.querySelector('.signatureSlide');
+//        subSlideShow(container, signatureItemLength);
+//     }
+//    else { container = '.suggestSlide'}
+//}
+
+
+
+function signatureSlideShow(container, count) {
+    container.style.transform = `translate(${-width}vw)`;
+    console.log(container.style.translateX);
+}
+
+const signatureNextBtn = document.querySelector('.signatureItem > #signatureItemNext');
+const container = document.querySelector('.signatureSlide');  
+let signatureCount = 0;
+let vwNum = 42;
+let width = 0;
+
+
+signatureNextBtn.addEventListener('click', () => {
+    ++signatureCount;
+    width += vwNum;
+    signatureSlideShow(container, width);
+})
+
+
+
 mainLoad();
-slideShow();
+signatureItemLoad();
+autoSlideShow();

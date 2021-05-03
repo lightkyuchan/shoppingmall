@@ -28,19 +28,25 @@
       </li>
     </ul>
   </nav>
-
-  <!-- main Slide -->
+  
   <div class="container">
     <div class="contents">
-        <div class="mainContent">
+      <!-- main Slide -->
+      <div class="mainContent">
           <ul class="mainSlider" data-count="0" data-width="0"></ul>                    
           <button class="prev" onclick="onButtonClick()" data-url="mainContents" data-flag="prev" data-value="0"><</button>
           <button class="next" onclick="onButtonClick()" data-url="mainContents" data-flag="next" data-value="0">></button>          
-        </div>
+      </div>
 
-        <!-- sub-->
-        <div class="signatureItem"></div>
-        <div class="suggestItem"></div>
+      <!-- sub Item1-->
+      <div class="signatureItem">
+        <div class="signatureTitle">Signature ITEM</div>
+        <ul class="signatureSlide"></ul>
+        <button class="prev" id="signatureItemPrev" onclick="subBtnClick()" data-url="signatureItem" data-flag="prev" data-value="0"><</button>
+        <button class="next" id="signatureItemNext" onclick="subBtnClick()" data-url="signatureItem" data-flag="next" data-value="0">></button>        
+      </div>
+         
+      <div class="suggestItem"></div>
     </div>
   </div>
 </body>
