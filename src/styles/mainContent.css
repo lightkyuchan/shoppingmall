@@ -6,6 +6,21 @@
   --btns-top: 50%;
   --btns-padding: 20px;
   --img-size: 100vw;
+
+  /* signatureItem */
+  --signatureItem-top: 20px;
+  --signatureTitle-bottom: 20px;
+  --signatureslide-rigth: 30px;
+  --signatureslide-width: 300px;
+
+  /* search */
+  --search-heigth: 70px;
+  --searchInner-width: 300px;
+  --searchInner-height: 40px;
+  --searchBtn-size: 20px;
+  --searchBtn-right: 20px;
+  --link-height: 40px;
+  --link-a-right: 20px;
 }
 
 * {
@@ -61,31 +76,195 @@ button {
 
 /* signatureItem 시작 */
 .signatureItem {
-  margin-top: 20px;
+  margin-top: var(--signatureItem-top);
   position: relative;
   overflow: hidden;
 }
 
 .signatureTitle {
   text-align: center;
-  padding-bottom: 20px;
+  padding-bottom: var(--signatureTitle-bottom);
 }
 
 .signatureSlide {
   display: flex;
   left: 0;
   top: 0;
-  transition: 0.5s ease-out;
+  transition: var(--anim) ease-out;
 }
 
 .signatureSlide li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 30px;
-  width: 300px;
+  margin-right: var(--signatureslide-rigth);
+  width: var(--signatureslide-width);
 }
 
 .signatureItem button {
   color: red;
+}
+
+.price {
+  text-decoration: line-through;
+}
+
+.sale {
+  color: blue;
+}
+
+/* signatureItem 끝 */
+
+/* suggestItem 시작 */
+.suggestItem {
+  margin-top: var(--signatureItem-top);
+  position: relative;
+  overflow: hidden;
+}
+
+.suggestTitle {
+  text-align: center;
+  padding-bottom: var(--signatureTitle-bottom);
+}
+
+.suggestSlide {
+  display: flex;
+  left: 0;
+  top: 0;
+  transition: var(--anim) ease-out;
+}
+
+.suggestSlide li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: var(--signatureslide-rigth);
+  width: var(--signatureslide-width);
+}
+
+.suggestItem button {
+  color: red;
+}
+
+.info {
+  text-align: center;
+}
+
+/* suggestItem 끝 */
+
+/* footer 시작*/
+
+.search {
+  width: 100%;
+  height: var(--search-heigth);
+}
+.searchInner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--searchInner-width);
+  height: var(--searchInner-height);
+  position: relative;
+  margin: 0 auto;
+}
+
+.searchText {
+  width: 100%;
+  height: 100%;
+}
+
+.searchBtn {
+  font-size: var(--searchBtn-size);
+  position: absolute;
+  right: var(--searchBtn-right);
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  height: var(--link-height);
+}
+
+.link a {
+  padding-right: var(--link-a-right);
+}
+
+.sideBarNav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: beige;
+}
+
+.sideNavInner {
+  position: relative;
+  top: 30px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.side {
+  width: 80%;
+  display: flex;
+  margin: 0 auto;
+}
+
+.side li {
+  padding-right: 40px;
+}
+
+.nav {
+  z-index: 1;
+}
+
+.close button i {
+  font-size: 25px;
+}
+
+.close {
+  margin-bottom: 20px;
+  padding-right: 40px;
+}
+
+.sideMenu {
+  position: fixed;
+  top: 100px;
+  width: 100%;
+}
+
+.sideMenuInner {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.sideMenuInner li {
+  padding-bottom: 10px;
+}
+
+.sideLinks {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.sideLinks a {
+  width: 85%;
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
+
+.sideMenuInner li:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+.sideBar {
+  position: relative;
+  left: -100vw;
+  z-index: 99;
+  transition: 0.8s ease-out;
 }

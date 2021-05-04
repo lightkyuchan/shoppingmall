@@ -14,7 +14,7 @@ function displayItem(items,container) {
     container.innerHTML = items.map(item => createStringHtml(item)).join('');        
 }
 
-function createStringHtml(item) {    
+function createStringHtml(item) {        
     if(item.type === 'mainItem') {
         return `
             <li>
@@ -23,9 +23,7 @@ function createStringHtml(item) {
                 </a>
             </li>
         `
-    }
-    
-    if(item.type === 'signatureItem') {
+    } else {
         return `
             <li>
                 <a href="#">
@@ -35,7 +33,7 @@ function createStringHtml(item) {
                 <span class="price">${item.price}</span>
                 <span class="sale">${item.sale}</span>
             </li>
-        `
+        ` 
     }
 }
 
@@ -139,54 +137,162 @@ function autoSlideShow() {
         })
 }
 
+// signature Item
 let signatureItemLength = 0;
+let siVwWidth           = 44;
+let signatureBtnCount   = 0;
+let siWidth             = 0;
+let smallScreenWidth    = 768;
+
+const largeVwWidth = 30;
 
 function signatureItemLoad() {
-    const url = 'http://127.0.0.1:5000/signatureItem';
+    const url       = 'http://127.0.0.1:5000/signatureItem';
     const container = document.querySelector('.signatureSlide');      
-    const width = 300; 
-    const margin = 30;    
+    const width     = 300; 
+    const margin    = 30;    
 
     loadJson(url)
         .then(items => {                      
             displayItem(items,container)
             container.style.width = (width + margin) * items.length - margin + 'px';   
-            signatureItemLength = items.length;         
+            signatureItemLength   = items.length;         
         });
 }
 
-let vwWidth = 42;
+function onSignatureNextClick() {
+    ++signatureBtnCount;
+    const container = document.querySelector('.signatureSlide');    
+     
+    if(window.innerWidth <= smallScreenWidth) {        
+        if(signatureBtnCount <= signatureItemLength -2) {
+            siWidth += -siVwWidth;                
+        } else {
+            siWidth           = 0;
+            signatureBtnCount = 0;
+        }
+    } else {             
+        siWidth = -largeVwWidth;
+        
+        if(signatureBtnCount > 1) {
+            siWidth           = 0;
+            signatureBtnCount = 0;
+        }
+    }    
 
-//function subBtnClick() {    
-//    if(event.target.dataset.url === 'signatureItem') { 
-//        container = document.querySelector('.signatureSlide');
-//        subSlideShow(container, signatureItemLength);
-//     }
-//    else { container = '.suggestSlide'}
-//}
-
-
-
-function signatureSlideShow(container, count) {
-    container.style.transform = `translate(${-width}vw)`;
-    console.log(container.style.translateX);
+    subSlideShow(siWidth, container);
 }
 
-const signatureNextBtn = document.querySelector('.signatureItem > #signatureItemNext');
-const container = document.querySelector('.signatureSlide');  
-let signatureCount = 0;
-let vwNum = 42;
-let width = 0;
+function onSignaturePrevClick() {
+    --signatureBtnCount;   
+    const container = document.querySelector('.signatureSlide');
 
+    if(window.innerWidth < smallScreenWidth) {
+        if(signatureBtnCount >= 0) {
+            siWidth -= -siVwWidth;        
+        } else {
+            signatureBtnCount = signatureItemLength-2;
+            siWidth           = -siVwWidth * (signatureItemLength-2);
+        }
+    } else {
+        siWidth -= -largeVwWidth;
+       if(signatureBtnCount < 0) {
+            siWidth           = -largeVwWidth;
+            signatureBtnCount = 1;
+       }
+    }
 
-signatureNextBtn.addEventListener('click', () => {
-    ++signatureCount;
-    width += vwNum;
-    signatureSlideShow(container, width);
-})
+    subSlideShow(siWidth, container);
+}
 
+//suggestItem
+let suggestItemLength   = 0;
+let suVwWidth           = 44;
+let sugnatureBtnCount   = 0;
+let suWidth             = 0;
 
+function suggestItemLoad() {
+    const url       = 'http://127.0.0.1:5000/suggestItem';
+    const container = document.querySelector('.suggestSlide');      
+    const width     = 300; 
+    const margin    = 30;    
+
+    loadJson(url)
+        .then(items => {                      
+            displayItem(items,container)
+            container.style.width = (width + margin) * items.length - margin + 'px';   
+            suggestItemLength   = items.length;       
+            console.log();  
+        });
+}
+
+function onSuggestNextClick() {
+    ++sugnatureBtnCount;
+    const container = document.querySelector('.suggestSlide');    
+     
+    if(window.innerWidth <= smallScreenWidth) {        
+        if(sugnatureBtnCount <= suggestItemLength -2) {
+            suWidth += -suVwWidth;                
+        } else {
+            suWidth           = 0;
+            sugnatureBtnCount = 0;
+        }
+    } else {             
+        suWidth = -largeVwWidth;
+        
+        if(sugnatureBtnCount > 1) {
+            suWidth           = 0;
+            sugnatureBtnCount = 0;
+        }
+    }    
+
+    subSlideShow(suWidth, container);
+}
+
+function onSuggestPrevClick() {
+    --sugnatureBtnCount;   
+
+    const container = document.querySelector('.suggestSlide');    
+    if(window.innerWidth < smallScreenWidth) {
+        if(sugnatureBtnCount >= 0) {                        
+            suWidth -= -suVwWidth;       
+            console.log(suWidth);
+        } else {
+            sugnatureBtnCount = suggestItemLength-2;
+            suWidth           = -suVwWidth * (suggestItemLength-2);
+        }
+     } else {
+         suWidth -= -largeVwWidth;
+        if(sugnatureBtnCount < 0) {
+             suWidth           = -largeVwWidth;
+             sugnatureBtnCount = 1;
+        }
+    }
+
+    subSlideShow(suWidth, container);
+}
+
+function subSlideShow(width, container) {
+    container.style.transform = `translate(${width}vw)`;
+}
 
 mainLoad();
 signatureItemLoad();
+suggestItemLoad();
 autoSlideShow();
+
+//sidebar open
+const mainToggleBtn = document.querySelector('.navMenu');
+const closeBtn      = document.querySelector('.close');
+const sideMenu      = document.querySelector('.sideBar');
+const sideVwWidth   = 100;
+
+mainToggleBtn.addEventListener('click', () => {
+    sideMenu.style.left          = 0;
+    document.body.style.overflow = 'hidden';
+});
+
+closeBtn.addEventListener('click', () =>{
+    sideMenu.style.left          = -sideVwWidth + 'vw';
+    document.body.style.overflow = 'scroll';
+});

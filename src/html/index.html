@@ -29,6 +29,7 @@
     </ul>
   </nav>
   
+  <!-- banner footer-->
   <div class="container">
     <div class="contents">
       <!-- main Slide -->
@@ -42,12 +43,77 @@
       <div class="signatureItem">
         <div class="signatureTitle">Signature ITEM</div>
         <ul class="signatureSlide"></ul>
-        <button class="prev" id="signatureItemPrev" onclick="subBtnClick()" data-url="signatureItem" data-flag="prev" data-value="0"><</button>
-        <button class="next" id="signatureItemNext" onclick="subBtnClick()" data-url="signatureItem" data-flag="next" data-value="0">></button>        
+        <button class="prev" id="signatureItemPrev" onclick="onSignaturePrevClick()"><</button>
+        <button class="next" id="signatureItemNext" onclick="onSignatureNextClick()">></button>        
       </div>
          
-      <div class="suggestItem"></div>
+      <!--sub Item2-->
+      <div class="suggestItem">
+        <div class="suggestTitle">Suggest ITEM</div>
+        <ul class="suggestSlide"></ul>
+        <button class="prev" id="suggestItemPrev" onclick="onSuggestPrevClick()"><</button>
+        <button class="next" id="suggestItemNext" onclick="onSuggestNextClick()">></button>    
+      </div>
     </div>
+
+    <!--footer-->
+    <footer>
+      <div class="search">
+        <div class="searchInner">
+          <input class="searchText" type="text">
+          <button class="searchBtn">search</button>
+        </div>        
+      </div>
+
+      <div class="link">
+        <a href="#"><strong>AGREEMENT</a></strong>
+        <a href="#"><strong>GUIDE</a></strong>
+        <a href="#"><strong>PRIVACY POLICY</a></strong>
+        <a href="#"><strong>PCVER</a></strong>
+      </div>
+    </footer>
+  </div>
+
+  <!-- sideBar -->
+  <div class="sideBar">
+    <nav class="sideBarNav">    
+    <div class="sideNavInner">
+      <ul class="side">
+        <li>
+          <a href="#">SIGN IN</a>
+        </li>
+        <li>
+          <a href="#">MYPAGE</a>
+        </li>
+        <li>
+          <a href="#">Q&A</a>
+        </li>
+        <li>
+          <a href="#"<i class="fas fa-shopping-cart"></i></a>
+        </li>
+      </ul>      
+      <div class="close">
+        <button><i class="fas fa-times"></i></button>
+      </div>
+    </div>
+    </nav>
+  
+    <!-- side Menu -->
+    <section>
+      <div class="sideMenu">
+        <ul class="sideMenuInner">
+          <li>SPRING SEASON OFF</li>
+          <li>MEN</li>
+          <li>WOMEN</li>
+          <li>OUTLET</li>
+        </ul>
+  
+        <div class="sideLinks">
+          <a href="#">COLLECTIONS</a>
+          <a href="#">ABOUT</a>
+        </div>
+      </div>
+    </section>
   </div>
 </body>
 </html>
