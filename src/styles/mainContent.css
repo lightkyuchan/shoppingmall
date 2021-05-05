@@ -21,6 +21,24 @@
   --searchBtn-right: 20px;
   --link-height: 40px;
   --link-a-right: 20px;
+
+   /* side */
+   --sideNavInner-top: 30px;
+   --sideNavInner-height: 40px;    
+
+   --side-width: 80%;
+   --side-li-right: 40px;
+   --close-buttion-i-size: 25px;
+   --close-botton: 20px;
+   --close-padding-right: 40px 
+   --sideMenu-top: 100px;
+   --sideMenuInner-width: 85%;
+   --sideMenuInner-li-bottom: 10px;
+   --sideLinks-top:40px;
+   --sideLinks-a-width: 85%;
+   --sideLinks-a-bottom: 10px;
+   --sidebar-left: -100vw;
+   --sideSubMenu-li-top: 10px;
 }
 
 * {
@@ -199,21 +217,22 @@ button {
 
 .sideNavInner {
   position: relative;
-  top: 30px;
-  height: 40px;
+  top: var(--sideNavInner-top);
+  height: var(--sideNavInner-height);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .side {
-  width: 80%;
+  width: var(--side-width);
   display: flex;
   margin: 0 auto;
 }
 
+
 .side li {
-  padding-right: 40px;
+  padding-right: var(--side-li-right);
 }
 
 .nav {
@@ -221,40 +240,40 @@ button {
 }
 
 .close button i {
-  font-size: 25px;
+  font-size: var(--close-buttion-i-size);
 }
 
 .close {
-  margin-bottom: 20px;
-  padding-right: 40px;
+  margin-bottom: var(--close-botton);
+  padding-right: var(--close-padding-right);
 }
 
 .sideMenu {
   position: fixed;
-  top: 100px;
+  top: var(--sideMenu-top);
   width: 100%;
 }
 
 .sideMenuInner {
-  width: 85%;
+  width: var(--sideMenuInner-width);
   margin: 0 auto;
 }
 
 .sideMenuInner li {
-  padding-bottom: 10px;
+  padding-bottom: var(--sideMenuInner-li-bottom);
 }
 
 .sideLinks {
-  margin-top: 40px;
+  margin-top: var(--sideLinks-top);
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
 .sideLinks a {
-  width: 85%;
+  width: var(--sideLinks-a-width);
   margin: 0 auto;
-  padding-bottom: 10px;
+  padding-bottom: var(--sideLinks-a-bottom);
 }
 
 .sideMenuInner li:hover {
@@ -264,7 +283,21 @@ button {
 
 .sideBar {
   position: relative;
-  left: -100vw;
+  left: var(--sidebar-left);
   z-index: 99;
   transition: 0.8s ease-out;
+}
+
+.sideSubMenu li {
+  padding-bottom: 0;
+  padding-top: var(--sideSubMenu-li-top);
+}
+
+.sideSubMenu {
+  height: 0;
+  overflow: hidden;
+}
+
+.mainMenu {
+  color: red;
 }

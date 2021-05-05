@@ -280,6 +280,7 @@ mainLoad();
 signatureItemLoad();
 suggestItemLoad();
 autoSlideShow();
+sideEventListner();
 
 //sidebar open
 const mainToggleBtn = document.querySelector('.navMenu');
@@ -296,3 +297,38 @@ closeBtn.addEventListener('click', () =>{
     sideMenu.style.left          = -sideVwWidth + 'vw';
     document.body.style.overflow = 'scroll';
 });
+
+function sideEventListner() {    
+    const subMenu = document.querySelectorAll('.sideSubMenu');    
+    const mainMenu = document.querySelectorAll('.mainMenu');        
+
+    for(let i=0; i< mainMenu.length; ++i) {
+        mainMenu[i].addEventListener('mouseover', () =>{
+            subMenu[i].style.height = subMenu[i].scrollHeight + 'px';
+        })
+        
+        mainMenu[i].addEventListener('mouseout', () => {
+            subMenu[i].style.height = 0;
+            
+        })
+
+        //mainMenu[i].addEventListener('click', () => {
+        //    mainMenu[i].classList.toggle('active');
+        //
+        //    if(strCheck === mainMenu[i].className) { 
+        //        subMenu[i].style.height = subMenu[i].scrollHeight + 'px';
+        //        
+        //        let focusEle = document.activeElement;
+//
+        //        if(focusEle !== document.getElementById('#menu')) {
+        //            console.log('no');
+        //            console.log(focusEle);
+        //            //그 어디에 찍어도 blur가 실행이 되질 않는다
+        //            //mouseover와 out은 또 잘먹음 -ㅅ- 이유가 뭘까 후
+        //            //확인해보니 focus가 body로 되어있다 다른것들은 자기로 잘 먹는데
+        //             //포커스를 변경하는걸 적용해봐도 body다 --
+        //        }
+        //    }
+        //})
+    }
+}
