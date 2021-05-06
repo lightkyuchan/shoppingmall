@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/styles/nav.css">
+    <script src="https://kit.fontawesome.com/e3a7fc4cde.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/src/styles/login.css">
+    <script src="/src/js/login.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+  <!-- nav -->
+  <nav class="nav">
+    <div class="navMenu">
+      <i class="fas fa-bars"></i>
+    </div>    
+    <div class="logo">
+      <a href="/">Maison de Sperone</a> 
+    </div>
+    <ul class="navBtns">
+      <li>
+        <i class="fas fa-shopping-cart"></i>
+      </li>
+      <li>
+        <i class="fas fa-search"></i>  
+      </li>
+    </ul>
+  </nav>
+
+  <div class="loginWrap">
+    <div class="loginInner">
+      <h3 class=title>회원 로그인</h3>
+      <div class="loginRow">      
+        <input type="text" id="id" placeholder="아이디">
+        <input type="password" id="pw" placeholder="비밀번호">                
+        <button class="loginBtn" onclick="onLoginClick()">로그인</button>
+      </div>  
+      
+      <ul class="snsArea">
+        <li>
+          <button class="naver">
+            <img src="/img/naver.png" alt="naver">
+            <span>네이버로그인</span>
+          </button>
+        </li>
+        <li>
+          <button class="kakao">
+            <img src="/img/kakao.png" alt="kakao">
+            <span>카카오로그인</span>
+          </button>
+        </li>      
+      </ul>  
+      <div class="join">
+        <p>
+          회원가입을 하시면 다양하고 특별한 <br/>
+          혜택이 준비되어 있습니다.
+        </p>
+        <div class="link">
+          <a href="http://127.0.0.1:5500/src/html/join.html"><span>회원가입</span></a>
+        </div>        
+      </div>
+    </div>  
+  </div>
+</body>
+</html>

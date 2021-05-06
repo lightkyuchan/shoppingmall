@@ -1,0 +1,125 @@
+:root {
+  --font-large: 24px;
+  --font-middle: 16px;
+  --font-small: 12px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+button {
+  border-radius: 5px;
+}
+
+.loginWrap {
+  width: 80%;
+  height: 350px;
+  border: 2px solid black;
+  margin: 0 auto;
+  position: relative;
+}
+
+.title {
+  text-align: center;
+  font-size: var(--font-large);
+  margin: 20px 0;
+}
+
+.loginRow {
+  width: 200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.loginRow input {
+  margin-bottom: 5px;
+  height: 30px;
+  width: 100%;
+}
+
+.loginBtn {
+  width: 90px;
+  height: 67px;
+  top: 0;
+  position: absolute;
+}
+
+.loginRow button {
+  margin-left: 10px;
+  outline: none;
+  background: grey;
+  border: none;
+  color: beige;
+  font-size: var(--font-middle);
+}
+
+.loginRow button:hover {
+  cursor: pointer;
+}
+
+.snsArea {
+  margin: 0 auto;
+  text-align: center;
+  width: 200px;
+  margin-top: 20px;
+}
+
+.snsArea li button {
+  width: 100%;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+.snsArea li span {
+  position: absolute;
+  left: 50%;
+}
+
+.naver {
+  background: #2db400;
+  color: white;
+  font-size: var(--font-middle);
+}
+
+.kakao {
+  background: yellow;
+  color: black;
+  font-size: var(--font-middle);
+}
+
+.join {
+  margin: 0 auto;
+  margin-top: 40px;
+  position: relative;
+  width: 400px;
+}
+
+.join p {
+  font-size: var(--font-small);
+  text-align: center;
+}
+
+.join a {
+  background: grey;
+  display: block;
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  font-size: var(--font-small);
+}
+
+.link a span {
+  display: block;
+  text-align: center;
+  padding-top: 5px;
+  color: white;
+}
+
+.link {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

@@ -1,11 +1,11 @@
 'use strict'
 
 function onButtonJoin() {
-    const inputs = document.querySelectorAll('.joinRow > input');
-    const pw = document.querySelector('#pw');
+    const inputs  = document.querySelectorAll('.joinRow > input');
+    const pw      = document.querySelector('#pw');
     const pwCheck = document.querySelector('#pwCheck');    
-    const id = document.querySelector('#id');
-    const name = document.querySelector('#name');
+    const id      = document.querySelector('#id');
+    const name    = document.querySelector('#name');
     
     //input에서 하나라도 빈 문자인지 체크
     inputs.forEach(input => {
@@ -33,7 +33,7 @@ function onButtonJoin() {
     }
 
     //email Check
-    const email = document.querySelector('#email');    
+    const email      = document.querySelector('#email');    
     const emailCheck = checkEmail(email.value);
 
     if(!emailCheck) {
@@ -59,12 +59,13 @@ function saveUser(id, pw, name, email) {
     }).then(res => {
         if(res.ok) {
             alert('생성이 완료 되었습니다.');
+            location.href = 'http://127.0.0.1:5500/src/html/login.html?';
         }
     })        
 }
 
 async function checkID() {
-    const res = await fetch('http://127.0.0.1:5000/users');
+    const res  = await fetch('http://127.0.0.1:5000/users');
     const data = await res.json();
 
     return data;
