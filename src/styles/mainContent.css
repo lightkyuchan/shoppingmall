@@ -25,7 +25,6 @@
    /* side */
    --sideNavInner-top: 30px;
    --sideNavInner-height: 40px;    
-
    --side-width: 80%;
    --side-li-right: 40px;
    --close-buttion-i-size: 25px;
@@ -250,7 +249,7 @@ button {
 
 .sideMenu {
   position: fixed;
-  top: var(--sideMenu-top);
+  top: 100px;
   width: 100%;
 }
 

@@ -1,6 +1,19 @@
 :root {
   --label: -0.2em 0 0 0.2em;
+  --form-width: 90%;
+  --form-height: 100vh;
+  --joinRow-padding: 20px;
+  --input-width: 400px;
+  --input-height: 40px;
+  --h3-width: 400px;
+  --h3-font-size: 2rem;
+  --pw-bottom: 20px;
+  --joinBtn-width: 400px;
+  --joinBtn-height: 60px;
+  --joinBtn-top: 20px;
+  --joinBtn-font-size: 20px;
 }
+
 * {
   padding: 0;
   margin: 0;
@@ -8,38 +21,37 @@
 }
 
 form {
-  width: 90%;
-  height: 100vh;
+  width: var(--form-width);
+  height: var(--form-height);
   margin: 0 auto;
   text-align: center;
 }
 
 .joinRow {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: var(--joinRow-padding) 0;
 }
 
 input {
-  width: 400px;
-  height: 40px;
+  width: var(--input-width);
+  height: var(--input-height);
 }
 
 h3 {
-  width: 400px;
+  width: var(--h3-width);
   margin: 0 auto;
   text-align: left;
-  font-size: 2rem;
+  font-size: var(--h3-font-size);
 }
 
 .joinBtn {
-  width: 400px;
-  height: 60px;
-  margin-top: 20px;
+  width: var(--joinBtn-width);
+  height: var(--joinBtn-height);
+  margin-top: var(--joinBtn-top);
   outline: none;
   border: none;
   background: white;
   color: black;
-  font-size: 20px;
+  font-size: var(--joinBtn-font-size);
 }
 
 h3::after {
@@ -49,7 +61,7 @@ h3::after {
 }
 
 #pw {
-  margin-bottom: 20px;
+  margin-bottom: var(--pw-bottom);
 }
 
 label:hover,

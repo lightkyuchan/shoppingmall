@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/src/styles/join.css">
     <link rel="stylesheet" href="/src/styles/nav.css">
     <script src="https://kit.fontawesome.com/e3a7fc4cde.js" crossorigin="anonymous"></script>
+    <script src="/src/js/join.js" defer></script>
     <title>Document</title>
 </head>
 <body>
@@ -28,7 +29,7 @@
     </ul>
   </nav>
 
-  <form action="" name="join">
+  <form action="#" name="join">
     <div class="joinRow">
       <label for="id"><h3>아이디</h3></label>
       <input type="text" id="id">
@@ -45,11 +46,9 @@
     </div>
     <div class="joinRow">
       <label for="email"><h3>이메일</h3></label>
-      <input type="text">
+      <input type="text" id="email">
     </div>
-    <button class="joinBtn" type="submit">가입하기</button>
+    <button class="joinBtn" type="button" onclick="onButtonJoin()">가입하기</button>
   </form>
-
-  
 </body>
 </html>
