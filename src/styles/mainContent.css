@@ -118,6 +118,10 @@ button {
   width: var(--signatureslide-width);
 }
 
+.signatureSlide>li:last-child {
+  margin-right: 0;
+}
+
 .signatureItem button {
   color: red;
 }

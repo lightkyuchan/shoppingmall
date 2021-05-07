@@ -156,7 +156,7 @@ function signatureItemLoad() {
         .then(items => {                      
             displayItem(items,container)
             container.style.width = (width + margin) * items.length - margin + 'px';   
-            signatureItemLength   = items.length;         
+            signatureItemLength   = items.length;   
         });
 }
 
@@ -281,6 +281,13 @@ signatureItemLoad();
 suggestItemLoad();
 autoSlideShow();
 sideEventListner();
+localStorageTest();
+
+function localStorageTest() {    
+    const data = sessionStorage.getItem('user');
+    const user = JSON.parse(data);
+    console.log(user);
+}
 
 //sidebar open
 const mainToggleBtn = document.querySelector('.navMenu');

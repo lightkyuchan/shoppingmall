@@ -123,9 +123,10 @@
     {
       "userid": "test",
       "pw": "test",
-      "name": "test",
+      "name": "testOne",
       "email": "test@gmail.com",
       "id": 3
     }
+    
   ]
 }

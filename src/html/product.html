@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/styles/nav.css">
+    <script src="https://kit.fontawesome.com/e3a7fc4cde.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/src/styles/product.css">
+    <title>Document</title>
+</head>
+<body>
+  <!-- nav -->
+  <nav class="nav">
+    <div class="navMenu">
+      <i class="fas fa-bars"></i>
+    </div>    
+    <div class="logo">
+      <a href="/">Maison de Sperone</a> 
+    </div>
+    <ul class="navBtns">
+      <li>
+        <i class="fas fa-shopping-cart"></i>
+      </li>
+      <li>
+        <i class="fas fa-search"></i>  
+      </li>
+    </ul>
+  </nav>        
+
+  <section>
+    <div class="productWrap">
+      <div class="productInner">
+        <div class="productImg">
+          <img src="/img/signatureItem1.png" alt="상품">
+        </div> 
+
+        <div class="info">
+          <p class="productName"><strong><h3>상품이름</h3></strong></p>
+          <span class="price">정상가</span><br/>
+          <span class="sale">세일가</span>
+        </div>
+
+        <select name="productSize" >
+          <option value="">-[필수] 옵션을 선택해 주세요-</option>
+          <option value="">--------------</option>
+          <option value="">사이즈</option>
+          <option value="sizeM">M</option>
+          <option value="sizeL">L</option>
+          <option value="sizeXL">XL</option>
+          <option value="sizeXXL">XXL</option>
+        </select>
+        
+        <ul class="optionProduct">
+          <li>
+            <span class="optionProductName">상품이름</span><br/>
+
+            <div class="sizeAndPrice">
+              <span>-M</span>
+              <div>
+                <span>세일가</span>
+                <button class="del">x</button>
+              </div>
+            </div>
+
+            <ul class="option">
+              <li>
+                <input type="text" class="productCount" placeholder="1">
+                <button class="up">+</button>
+                <button calss="down">-</button>
+              </li>
+            </ul>
+
+            <div class="total">
+              <span>TOTAL : </span>
+              <input type="text" placeholder="1,111,111원"><span id="count">(2개)</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="btns">
+          <button class="cart">ADD CART</button>
+          <button class="buy">BUY NOW</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

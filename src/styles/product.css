@@ -1,0 +1,122 @@
+:root {
+  --margin-large: 60px;
+  --margin-middle: 40px;
+  --margin-small: 20px;
+  --productInner-width: 90%;
+  --productCount-width: 100px;
+  --productCount-height: 25px;
+  --total-width: 200px;
+  --total-input-width: 100px;
+  --total-count-right: 16%;
+  --cart-width: 40%;
+  --buy-width: 60%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.productWrap {
+  width: 100%;
+}
+
+.productInner {
+  width: var(--productInner-width);
+  margin: 0 auto;
+}
+
+.productImg {
+  text-align: center;
+  width: 100%;
+}
+
+.productImg img {
+  width: 100%;
+  height: auto;
+}
+
+.info {
+  margin-top: var(--margin-middle);
+}
+
+.info span {
+  display: inline-block;
+  margin-top: var(--margin-small);
+}
+
+select {
+  margin-top: var(--margin-large);
+  width: 100%;
+  height: var(--margin-middle);
+  padding: 0 0.5rem;
+}
+
+.optionProduct {
+  margin-top: var(--margin-small);
+}
+
+.sizeAndPrice {
+  display: flex;
+  justify-content: space-between;
+}
+
+.option {
+  margin-top: var(--margin-small);
+}
+
+.productCount {
+  width: var(--productCount-width);
+  height: var(--productCount-height);
+  text-align: center;
+}
+
+.option button {
+  width: var(--margin-small);
+  height: var(--margin-small);
+}
+
+.total {
+  margin-top: var(--margin-small);
+  width: var(--total-width);
+  position: relative;
+}
+
+.total input {
+  width: var(--total-input-width);
+  outline: none;
+  border: none;
+}
+
+.total #count {
+  position: absolute;
+  right: var(--total-count-right);
+}
+
+.btns {
+  width: 100%;
+  height: var(--margin-middle);
+  display: flex;
+  margin: var(--margin-middle) 0;
+}
+
+.cart {
+  width: var(--cart-width);
+}
+
+.buy {
+  width: var(--buy-width);
+  background: black;
+  color: white;
+}
+
+.cart:hover,
+.buy:hover {
+  cursor: pointer;
+}
+
+.buy:hover {
+  background: white;
+  color: black;
+}
