@@ -26,8 +26,8 @@ function createStringHtml(item) {
     } else {
         return `
             <li>
-                <a href="#">
-                  <img src=${item.imgPath} alt="signatureItem">
+                <a href="#" class=${item.type}>
+                  <img src=${item.imgPath} alt=${item.type}>
                 </a>
                 <span class="info">${item.name}</span>
                 <span class="price">${item.price}</span>
@@ -142,6 +142,7 @@ let signatureItemLength = 0;
 let siVwWidth           = 44;
 let signatureBtnCount   = 0;
 let siWidth             = 0;
+//화민이 768이하일때 
 let smallScreenWidth    = 768;
 
 const largeVwWidth = 30;
@@ -160,13 +161,15 @@ function signatureItemLoad() {
         });
 }
 
+//아이템마다 length가 다를 수 있어서 아예 따로 만듬..
 function onSignatureNextClick() {
     ++signatureBtnCount;
     const container = document.querySelector('.signatureSlide');    
      
-    if(window.innerWidth <= smallScreenWidth) {        
+    //화면이 768보다 작다면 실행     
+    if(window.innerWidth <= smallScreenWidth) {           
         if(signatureBtnCount <= signatureItemLength -2) {
-            siWidth += -siVwWidth;                
+            siWidth += -siVwWidth;       
         } else {
             siWidth           = 0;
             signatureBtnCount = 0;
@@ -281,12 +284,11 @@ signatureItemLoad();
 suggestItemLoad();
 autoSlideShow();
 sideEventListner();
-localStorageTest();
+sessionStorageTest();
 
-function localStorageTest() {    
+function sessionStorageTest() {    
     const data = sessionStorage.getItem('user');
     const user = JSON.parse(data);
-    console.log(user);
 }
 
 //sidebar open
@@ -338,4 +340,74 @@ function sideEventListner() {
         //    }
         //})
     }
+}
+
+//상세화면 index.html에서 상세화면으로 상품 넘겨주기까지
+const signatureItem = document.querySelector('.signatureSlide');
+const suggestItem   = document.querySelector('.suggestSlide');
+
+signatureItem.addEventListener('click', () => {    
+    //상품의 liTag
+    const parent = event.target.parentNode.parentNode;
+
+    const imgTag = getImg(parent);
+    
+    getItem(imgTag)
+        .then(item => {
+            sessionStorage.setItem('product', JSON.stringify(item));
+            location.href = 'http://127.0.0.1:5500/src/html/product.html?';
+        })
+})
+
+suggestItem.addEventListener('click', () => {    
+    const parent = event.target.parentNode.parentNode;
+
+    const imgTag = getImg(parent);
+    
+    getItem(imgTag)
+    .then(item => {
+        sessionStorage.setItem('product', JSON.stringify(item));
+        location.href = 'http://127.0.0.1:5500/src/html/product.html?';
+    })
+})
+
+function getImg(parent) {
+    //liTag > aTag
+    let child = null;
+    //aTag > imgTag
+    let imgTag = null;
+
+    for(let value of parent.childNodes) {
+        if(value.tagName === 'A') {            
+            child = value;
+        }
+    }
+
+    for(let img of child.childNodes) {
+        if(img.tagName === 'IMG') {
+            imgTag = img;            
+        }
+    }
+
+    return imgTag;
+}
+
+async function getItem(imgTag) {
+    const strImg = imgTag.src;
+    const type = imgTag.alt;    
+    const startIdx = 21;
+    const lastIdx  = imgTag.src.length - startIdx;
+
+    //아이템 검색에 필요한 img string 얻기
+    //ex /img/signatureItem1.png
+    const imgUrl = imgTag.src.substr(startIdx, lastIdx)
+    
+    let url = `http://127.0.0.1:5000/${type}`
+
+    let res = await fetch(url);
+    let data = await res.json();
+
+    let product = data.filter( item => item.imgPath === imgUrl )
+    
+    return product;
 }

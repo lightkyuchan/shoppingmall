@@ -120,3 +120,7 @@ select {
   background: white;
   color: black;
 }
+
+.price {
+  text-decoration: line-through;
+}

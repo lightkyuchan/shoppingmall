@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/src/styles/nav.css">
     <script src="https://kit.fontawesome.com/e3a7fc4cde.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/src/styles/product.css">
+    <script src="/src/js/product.js" defer></script>
     <title>Document</title>
 </head>
 <body>
@@ -36,47 +37,22 @@
         </div> 
 
         <div class="info">
-          <p class="productName"><strong><h3>상품이름</h3></strong></p>
+          <p class="productName"><strong></strong></p>
           <span class="price">정상가</span><br/>
           <span class="sale">세일가</span>
         </div>
 
-        <select name="productSize" >
+        <select id="productSize" >
           <option value="">-[필수] 옵션을 선택해 주세요-</option>
           <option value="">--------------</option>
           <option value="">사이즈</option>
-          <option value="sizeM">M</option>
-          <option value="sizeL">L</option>
-          <option value="sizeXL">XL</option>
-          <option value="sizeXXL">XXL</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+          <option value="XXL">XXL</option>
         </select>
         
-        <ul class="optionProduct">
-          <li>
-            <span class="optionProductName">상품이름</span><br/>
-
-            <div class="sizeAndPrice">
-              <span>-M</span>
-              <div>
-                <span>세일가</span>
-                <button class="del">x</button>
-              </div>
-            </div>
-
-            <ul class="option">
-              <li>
-                <input type="text" class="productCount" placeholder="1">
-                <button class="up">+</button>
-                <button calss="down">-</button>
-              </li>
-            </ul>
-
-            <div class="total">
-              <span>TOTAL : </span>
-              <input type="text" placeholder="1,111,111원"><span id="count">(2개)</span>
-            </div>
-          </li>
-        </ul>
+        <ul class="optionProduct"></ul>
 
         <div class="btns">
           <button class="cart">ADD CART</button>
