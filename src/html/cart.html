@@ -4,13 +4,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/src/styles/nav.css">
+    <script src="https://kit.fontawesome.com/e3a7fc4cde.js" crossorigin="anonymous"></script>    
+    <link rel="stylesheet" href="/src/styles/cart.css">
+    <script src="/src/js/cart.js" defer></script>
+    
+    <title>Document</title> 
 </head>
 <body>
-    CARTCART
-    CARTCART
-    CARTCART
-    CARTCART
-    CARTCART
+     <!-- nav -->
+  <nav class="nav">
+    <div class="navMenu">
+      <i class="fas fa-bars"></i>
+    </div>    
+    <div class="logo">
+      <a href="/">Maison de Sperone</a> 
+    </div>
+    <ul class="navBtns">
+      <li>
+        <i class="fas fa-shopping-cart"></i>
+      </li>
+      <li>
+        <i class="fas fa-search"></i>  
+      </li>
+    </ul>
+  </nav>  
+
+  <div class="cartWrap">
+    <div class="cartInner">
+      <div class="title">
+        <span class="title">장바구니 상품</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+
+      <ul class="productInner">
+        
+      </ul>
+
+      
+
+      <div class="priceInner">
+          결제예정금액 <span class="expectedPrcie">가격</span><br/>
+          <br />
+          총 상품금액 <span class="totalPrice">가격</span><br/>
+      </div>
+      
+      <div class="orderBtns">
+        <button class="checkOrder" onClick="seleteOrder()">선택상품주문</button>
+        <button class="totalOrder">전체상품주문</button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

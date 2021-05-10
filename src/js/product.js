@@ -52,7 +52,7 @@ function createOption(value) {
         if(sizeValue !== value && copyData.length < length) {             
             sizeValue = value;            
             copyData.push(data);            
-            container.innerHTML = copyData.map(data => createStringHTML(data)).join('');
+            container.innerHTML = copyData.map(data => createStringHTML(data)).join('');            
             valueArray.push(value);
         }
     }
@@ -70,6 +70,9 @@ function createOption(value) {
         ++count;
     }
 }
+
+let totalPriceArray = [];
+let totalCountArray = [];
 
 function countUp() {
     let num = 0;    
@@ -95,6 +98,13 @@ function countUp() {
     price += sale;
     price = addComma(price);
     totalPrice[idx].value = price;
+
+    total(totalPrice, num, idx);
+}
+
+function total(totalPrice, num=1, idx) {
+    totalPriceArray[idx] = totalPrice[idx].value;
+    totalCountArray[idx] = num;
 }
 
 function addComma(num) {
@@ -143,6 +153,8 @@ function countDown() {
     price -= sale;
     price = addComma(price);
     totalPrice[idx].value = price;
+
+    total(totalPrice, num, idx);
 }
 
 function createStringHTML(data) {
@@ -181,16 +193,27 @@ buy.addEventListener('click', () => alert('구매했습니다'));
 const cart = document.querySelector('.cart');
 cart.addEventListener('click', () => {
     //넘길 것들
-    //상품정보, 옵션(사이즈, 수량), 합계
-    const select = document.querySelector('#productSize');
-    const idx   = select.options.selectedIndex;    
-    const value = select.options[idx].value;
+    //상품정보, 옵션(사이즈, 수량), 합계    
+    const size = valueArray.length;
 
-    if(value === '') { 
+    const product = getProduct();
+
+    if(valueArray.length !== totalPriceArray.length ) {
+        const num = 1;
+    
+        totalPriceArray[totalPriceArray.length] = product[0].sale;
+        totalCountArray[totalCountArray.length] = num;
+    }
+
+    sessionStorage.setItem('price', JSON.stringify(totalPriceArray));
+    sessionStorage.setItem('count', JSON.stringify(totalCountArray));
+    sessionStorage.setItem('size', JSON.stringify(valueArray));
+
+    if(size <= 0) { 
         alert('필수 옵션을 선택해주세요');
         return;
     }    
-
+    
     location.href = 'http://127.0.0.1:5500/src/html/cart.html?'
 })
 

@@ -1,0 +1,158 @@
+:root {
+  --margin: 20px;
+  --cartWrap-width: 80%;
+  --checkBoxAndimage-width: 30%;
+  --img-size: 100px;
+  --info-width: 70%;
+  --countInner-input-width: 40px;
+  --margin-small: 10px;
+  --checkOrder-width: 40%;
+  --checkOrder-height: 40px;
+  --totalOrder-width: 59%;
+  --totalOrder-height: 40px;
+  --del-width: 60px;
+  --del-height: 40px;
+  --productsOfInterest-width: 80px;
+  --productsOfInterest-height: 40px;
+  --toggleBtnsOrder-button-width: 100px;
+  --toggleBtnsOrder-button-height: 40px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+}
+
+input {
+  cursor: pointer;
+}
+
+.cartWrap {
+  width: var(--cartWrap-width);
+  margin: 0 auto;
+}
+
+.cartInner {
+  width: 100%;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.productInner {
+  margin-top: var(--margin);
+  height: 100%;
+}
+
+.infos {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.checkBoxAndimage {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--margin);
+  width: var(--checkBoxAndimage-width);
+}
+
+.check {
+  display: inline-block;
+  width: var(--margin);
+  height: var(--margin);
+}
+
+.checkBoxAndimage img {
+  width: var(--img-size);
+  height: auto;
+  margin-top: var(--margin);
+}
+
+.info {
+  width: var(--info-width);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.productName {
+  margin-bottom: var(--margin-small);
+}
+
+.countInner {
+  margin-top: var(--margin-small);
+}
+
+.countInner button {
+  width: var(--margin);
+  height: var(--margin);
+}
+
+.countInner input {
+  width: var(--countInner-input-width);
+  text-align: center;
+}
+
+.option {
+  margin-top: var(--margin);
+}
+
+.total {
+  margin-top: var(--margin);
+}
+
+.toggleBtns {
+  margin-top: var(--margin);
+  display: flex;
+  justify-content: space-between;
+}
+
+.priceInner {
+  margin-top: var(--margin);
+}
+
+.priceInner span {
+  float: right;
+}
+
+.orderBtns {
+  margin-top: var(--margin);
+  width: 100%;
+}
+
+.checkOrder {
+  width: var(--checkOrder-width);
+  height: var(--checkOrder-height);
+}
+
+.totalOrder {
+  width: var(--totalOrder-width);
+  height: var(--totalOrder-height);
+  background: black;
+  color: white;
+}
+
+.del {
+  width: var(--del-width);
+  height: var(--del-height);
+}
+
+.productsOfInterest {
+  width: var(--productsOfInterest-width);
+  height: var(--productsOfInterest-height);
+}
+
+.toggleBtnsOrder button {
+  width: var(--toggleBtnsOrder-button-width);
+  height: var(--toggleBtnsOrder-button-height);
+  background: black;
+  color: white;
+}
