@@ -411,3 +411,7 @@ async function getItem(imgTag) {
     
     return product;
 }
+
+const cart = document.querySelector('#cart');
+cart.addEventListener('click', () => location.href = 'http://127.0.0.1:5500/src/html/cart.html?')
+

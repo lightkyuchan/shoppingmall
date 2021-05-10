@@ -2,7 +2,7 @@
 
 function getProduct() {
     const getProduct  = sessionStorage.getItem('product');
-    const product = JSON.parse(getProduct);
+    const product    = JSON.parse(getProduct);
 
     const getPrice = sessionStorage.getItem('price');
     const price = JSON.parse(getPrice);
@@ -96,4 +96,14 @@ function createStringHTML(price, item, count, size) {
     `
 }
 
-cartInfo();
+function start() {
+    if(sessionStorage.length <= 1) { 
+      alert('상품이 없습니다');
+      location.href = 'http://127.0.0.1:5500/src/html/index.html';
+      return; 
+    }
+    
+    cartInfo();
+}
+
+start();
