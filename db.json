@@ -127,6 +127,84 @@
       "email": "test@gmail.com",
       "id": 3
     }
-    
+  ],
+
+  "MEN": [
+    {
+      "id": 1,
+      "imgPath": "/img/signatureItem1.png",
+      "name": "램스킨 스탠다드 라이더 자켓",
+      "price": "285,000",
+      "sale": "159,000",
+      "type": "MEN"
+    },
+    {
+      "id": 2,
+      "imgPath": "/img/signatureItem2.png",
+      "name": "카우하이드 싱글 라이더 자켓",
+      "price": "255,000",
+      "sale": "159,000",
+      "type": "MEN"
+    },
+    {
+      "id": 3,
+      "imgPath": "/img/signatureItem3.png",
+      "name": "카우하이드 라이더 자켓",
+      "price": "255,000",
+      "sale": "159,000",
+      "type": "MEN"
+    },
+    {
+      "id": 4,
+      "imgPath": "/img/signatureItem4.png",
+      "name": "램스킨 싱글 라이더 자켓",
+      "price": "285,000",
+      "sale": "159,000",
+      "type": "MEN"
+    },
+    {
+      "id": 5,
+      "imgPath": "/img/signatureItem5.png",
+      "name": "램스킨 스냅 라이더 자켓",
+      "price": "285,000",
+      "sale": "159,000",
+      "type": "MEN"
+    }
+  ],
+
+  "WOMEN": [
+    {
+      "id": 1,
+      "imgPath": "/img/suggestItem1.png",
+      "name": "파리 레터링 오버핏 티셔츠(화이트)",
+      "price": "42,000",
+      "sale": "37,800",
+      "type": "WOMEN"
+    },
+    {
+      "id": 2,
+      "imgPath": "/img/suggestItem2.png",
+      "name": "파리 레터링 오버핏 티셔츠(네이비)",
+      "price": "42,000",
+      "sale": "37,800",
+      "type": "WOMEN"
+    },
+    {
+      "id": 3,
+      "imgPath": "/img/suggestItem3.png",
+      "name": "아멜리아 티어드 레이스 원피스(화이트)",
+      "price": "145,000",
+      "sale": "137,750",
+      "type": "WOMEN"
+    },
+    {
+      "id": 4,
+      "imgPath": "/img/suggestItem4.png",
+      "name": "마르퀴스 하트쉐잎 슬리브리스 원피스(네이비)",
+      "price": "125,000",
+      "sale": "118,750",
+      "type": "WOMEN"
+    }
   ]
+  
 }

@@ -318,27 +318,7 @@ function sideEventListner() {
         
         mainMenu[i].addEventListener('mouseout', () => {
             subMenu[i].style.height = 0;
-            
-        })
-
-        //mainMenu[i].addEventListener('click', () => {
-        //    mainMenu[i].classList.toggle('active');
-        //
-        //    if(strCheck === mainMenu[i].className) { 
-        //        subMenu[i].style.height = subMenu[i].scrollHeight + 'px';
-        //        
-        //        let focusEle = document.activeElement;
-//
-        //        if(focusEle !== document.getElementById('#menu')) {
-        //            console.log('no');
-        //            console.log(focusEle);
-        //            //그 어디에 찍어도 blur가 실행이 되질 않는다
-        //            //mouseover와 out은 또 잘먹음 -ㅅ- 이유가 뭘까 후
-        //            //확인해보니 focus가 body로 되어있다 다른것들은 자기로 잘 먹는데
-        //             //포커스를 변경하는걸 적용해봐도 body다 --
-        //        }
-        //    }
-        //})
+        })        
     }
 }
 
@@ -414,4 +394,43 @@ async function getItem(imgTag) {
 
 const cart = document.querySelector('#cart');
 cart.addEventListener('click', () => location.href = 'http://127.0.0.1:5500/src/html/cart.html?')
+
+//사이드바 sub메뉴 클릭
+const category = document.querySelectorAll('.sideSubMenu > li > a');
+let menuArray = null;
+
+for(let i=0; i<category.length; ++i) {
+    category[i].addEventListener('click', () => {        
+        menuArray = getMenu(category[i]);               
+        
+        sessionStorage.setItem('menuTitle',  category[i].dataset.value);
+        sessionStorage.setItem('category',  category[i].dataset.category);        
+        sessionStorage.setItem('menuArray', JSON.stringify(menuArray));       
+        
+        location.href = 'http://127.0.0.1:5500/src/html/list.html?';
+    })
+}
+
+//각 카테고리의 형제노드들 
+//man 이라는 부모태그의 a b자식 노드가 있고, a를 클릭했을 때 b노드도 넘겨주기위해
+function getMenu(category) {
+    //a > li > parent
+    const parent = category.parentNode.parentNode;
+    
+    //parent노드의 안보이는 text 자식이 있기때문에 거르기    
+    //list에서 보여질 메뉴들(a > li의 형제노드들)
+    
+    const menu = [];
+    
+    for(let child of parent.childNodes) {
+        if(child.tagName === 'LI') {
+            for(let i of child.childNodes) {                
+                menu.push(i.textContent);
+            }
+        }
+    }
+
+    return menu;
+}
+
 

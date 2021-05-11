@@ -13,11 +13,21 @@ function productInfo() {
     const name    = document.querySelector('.productName > strong');    
     const price   = document.querySelector('.price');
     const sale    = document.querySelector('.sale');
-
-    img.src           = product[0].imgPath;
-    name.textContent  = product[0].name;
-    price.textContent =  product[0].price;
-    sale.textContent  =  product[0].sale;
+        
+    if(product[0] === undefined) {        
+        img.src = product.imgPath;
+        name.textContent  = product.name;
+        price.textContent = product.price;
+        sale.textContent  = product.sale;
+        
+    } else {
+        img.src           =  product[0].imgPath;
+        name.textContent  =  product[0].name;
+        price.textContent =  product[0].price;
+        sale.textContent  =  product[0].sale;
+        
+    }
+    
 }
 
 const selectBox = document.querySelector('#productSize');
@@ -158,15 +168,26 @@ function countDown() {
 }
 
 function createStringHTML(data) {
+    let name = null;
+    let sale = null;
+
+    if(data[0] === undefined) {
+        name = data.name;
+        sale = data.sale;
+    } else {
+        name = data[0].name;
+        sale = data[0].sale;
+    }
+    
     
     return `
         <li>
-          <span class="optionProductName">${data[0].name}</span><br/>
+          <span class="optionProductName">${name}</span><br/>
 
           <div class="sizeAndPrice">
             <span>-M</span>
             <div>
-              <span>${data[0].sale}</span>
+              <span>${sale}</span>
               <button class="del">x</button>
             </div>
           </div>
@@ -181,7 +202,7 @@ function createStringHTML(data) {
 
           <div class="total">
             <span>TOTAL : </span>
-            <input type="text" class="totalPrice" value=${data[0].sale}원><span id="count">(1개)</span>
+            <input type="text" class="totalPrice" value=${sale}원><span id="count">(1개)</span>
           </div>
         </li>
     `
@@ -197,11 +218,14 @@ cart.addEventListener('click', () => {
     const size = valueArray.length;
 
     const product = getProduct();
+    let sale = null;
+    if(product[0] === undefined) { sale = product.sale } 
+    else { sale = product[0].sale }
 
     if(valueArray.length !== totalPriceArray.length ) {
         const num = 1;
     
-        totalPriceArray[totalPriceArray.length] = product[0].sale;
+        totalPriceArray[totalPriceArray.length] = sale;
         totalCountArray[totalCountArray.length] = num;
     }
 
